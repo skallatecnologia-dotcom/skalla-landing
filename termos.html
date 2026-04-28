@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos e Condições de Uso — Skalla.ai</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent: #7B52D4;
+    --accent-light: #9b72f4;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(123,82,212,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(123,82,212,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .badge {
+    background: rgba(123,82,212,0.15);
+    border: 1px solid rgba(123,82,212,0.3);
+    color: var(--accent-light);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
+  }
+
+  .hero {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+
+  .hero h1 span { color: var(--accent); }
+
+  .meta-info {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .meta-item strong {
+    color: var(--accent-light);
+    font-weight: 500;
+  }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 60px;
+  }
+
+  .toc h2 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  .toc li {
+    counter-increment: toc;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .toc li:last-child { border-bottom: none; }
+
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 24px;
+  }
+
+  .toc a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .toc a:hover { color: var(--accent-light); }
+
+  section {
+    margin-bottom: 56px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(123,82,212,0.1);
+    border: 1px solid rgba(123,82,212,0.2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    min-width: 36px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-light);
+    margin: 24px 0 10px;
+  }
+
+  p { color: var(--text); margin-bottom: 14px; }
+
+  ul, ol {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+
+  li { margin-bottom: 8px; color: var(--text); }
+
+  .highlight-box {
+    background: rgba(123,82,212,0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+
+  .highlight-box p { margin-bottom: 0; }
+
+  .warning-box {
+    background: rgba(255,180,0,0.06);
+    border-left: 3px solid #f0a500;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+
+  .warning-box p { margin-bottom: 0; color: #c8a050; }
+
+  strong { color: var(--white); font-weight: 600; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    background: rgba(123,82,212,0.12);
+    color: var(--accent-light);
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 48px 0;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  footer a {
+    color: var(--accent-light);
+    text-decoration: none;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    header { padding: 16px 20px; }
+    main { padding: 40px 20px 80px; }
+    .hero h1 { font-size: 26px; }
+    footer { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">skalla<span>.ai</span></div>
+  <div class="badge">Legal</div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Termos e Condições<br>Gerais de <span>Uso</span></h1>
+    <div class="meta-info">
+      <div class="meta-item"><strong>Disponibilizado em:</strong> 28/04/2026</div>
+      <div class="meta-item"><strong>Última atualização:</strong> 28/04/2026</div>
+      <div class="meta-item"><strong>Versão:</strong> 1.0</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h2>Índice</h2>
+    <ol>
+      <li><a href="#s1">Conceitos Importantes</a></li>
+      <li><a href="#s2">Natureza e Eficácia dos Termos</a></li>
+      <li><a href="#s3">Objeto e Licença de Uso</a></li>
+      <li><a href="#s4">Planos, Pagamento e Cancelamento</a></li>
+      <li><a href="#s5">Obrigações e Responsabilidades</a></li>
+      <li><a href="#s6">Integrações com Terceiros</a></li>
+      <li><a href="#s7">Privacidade e Proteção de Dados (LGPD)</a></li>
+      <li><a href="#s8">Propriedade Intelectual</a></li>
+      <li><a href="#s9">Disposições Gerais</a></li>
+      <li><a href="#s10">Foro e Legislação Aplicável</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight-box">
+    <p>Estes Termos regulam a relação comercial entre a <strong>SUPPERA PUBLICIDADE LTDA</strong>, inscrita no CNPJ sob o nº a ser informado, doravante denominada <strong>"Skalla.ai"</strong> ou <strong>"Licenciante"</strong>, e a pessoa física ou jurídica que adquire a licença, doravante denominada <strong>"Cliente"</strong> ou <strong>"Licenciado"</strong>. <strong>Ao contratar e utilizar o Skalla.ai, o Cliente declara ter lido, compreendido e aceito integralmente estes Termos.</strong></p>
+  </div>
+
+  <section id="s1">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <h2>Conceitos Importantes</h2>
+    </div>
+    <p>Para facilitar a leitura e interpretação deste documento, adotamos as seguintes definições:</p>
+    <ul>
+      <li><strong>Cliente (ou Licenciado):</strong> Pessoa física ou jurídica que adquire a Licença de Uso do Skalla.ai, responsável pelo pagamento e pela gestão dos usuários e leads em sua conta.</li>
+      <li><strong>Skalla.ai:</strong> Software SaaS de automação de vendas com inteligência artificial integrada ao WhatsApp, desenvolvido e de propriedade exclusiva da Suppera Publicidade Ltda.</li>
+      <li><strong>Licença de Uso:</strong> Modalidade de contratação que concede ao Cliente o direito de uso do Skalla.ai pelo período contratado (mensal ou anual), conforme o plano escolhido.</li>
+      <li><strong>Tenant:</strong> Conta ou instância criada dentro do Skalla.ai vinculada a um cliente específico.</li>
+      <li><strong>Usuário:</strong> Pessoa autorizada pelo Cliente a acessar o painel do sistema (Admin ou Atendente).</li>
+      <li><strong>Lead:</strong> Contato capturado via WhatsApp ou formulário que entra no fluxo de automação do Skalla.ai.</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s2">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <h2>Natureza e Eficácia dos Termos</h2>
+    </div>
+    <p>2.1. Ao adquirir a Licença de Uso, o Cliente concorda integralmente com estes Termos. A aceitação é condição indispensável para liberação do acesso ao Skalla.ai.</p>
+    <p>2.2. A realização do pagamento ou o início da utilização implica aceitação plena, inequívoca e irrevogável de todas as condições estabelecidas.</p>
+    <p>2.3. O Cliente reconhece que estes Termos possuem força de contrato vinculante, substituindo quaisquer acordos verbais ou trocas de mensagens anteriores.</p>
+    <p>2.4. O Skalla.ai poderá alterar estes Termos a qualquer momento, notificando o Cliente por e-mail ou aviso no painel. O uso continuado após a publicação das alterações confirma a aceitação dos novos Termos.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s3">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <h2>Objeto e Licença de Uso</h2>
+    </div>
+    <p>3.1. O contrato concede ao Cliente uma Licença de Uso de Software, não exclusiva, intransferível e temporária, do Skalla.ai, na modalidade SaaS (Software as a Service), hospedado em infraestrutura própria da Licenciante.</p>
+    <p>3.2. A licença permite ao Cliente:</p>
+    <ul>
+      <li>Configurar e utilizar o painel de automação de vendas via WhatsApp;</li>
+      <li>Criar e gerenciar usuários (atendentes) dentro do seu tenant;</li>
+      <li>Utilizar a IA integrada (Carol) para qualificação e follow-up de leads;</li>
+      <li>Acessar relatórios, Kanban e funcionalidades do painel conforme o plano contratado.</li>
+    </ul>
+    <h3>3.3. Restrições</h3>
+    <p>Sob pena de cancelamento imediato e medidas legais cabíveis, é expressamente vedado ao Cliente:</p>
+    <ul>
+      <li>Copiar, vender, redistribuir ou sublicenciar o acesso ao Skalla.ai para terceiros sem autorização expressa;</li>
+      <li>Realizar engenharia reversa ou tentativa de acesso ao código-fonte;</li>
+      <li>Utilizar o sistema para envio de spam, conteúdo ilegal ou que viole as políticas da Meta/WhatsApp;</li>
+      <li>Compartilhar credenciais de acesso com terceiros não autorizados.</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s4">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <h2>Planos, Pagamento e Cancelamento</h2>
+    </div>
+    <h3>4.1. Planos Disponíveis</h3>
+    <p>O Skalla.ai oferece os seguintes planos, sujeitos a alteração mediante aviso prévio:</p>
+    <ul>
+      <li><strong>CRM Básico (R$47/mês):</strong> até 1.000 disparos, sem IA;</li>
+      <li><strong>Starter (R$147/mês):</strong> até 250 leads e 2.500 disparos com IA;</li>
+      <li><strong>Pro (R$347/mês):</strong> até 600 leads e 6.000 disparos com IA;</li>
+      <li><strong>Enterprise:</strong> limites customizados, valor a combinar.</li>
+    </ul>
+    <h3>4.2. Pagamento e Renovação</h3>
+    <p>4.2.1. O pagamento é processado via cartão de crédito através da plataforma Stripe. A cobrança é recorrente (mensal ou anual) e renovada automaticamente ao final de cada ciclo.</p>
+    <p>4.2.2. Em caso de falha no pagamento, o sistema poderá ser suspenso até a regularização financeira.</p>
+    <h3>4.3. Cancelamento e Reembolso</h3>
+    <p>4.3.1. Em conformidade com o Art. 49 do Código de Defesa do Consumidor, o Cliente poderá solicitar o cancelamento e reembolso integral em até <strong>7 (sete) dias corridos</strong> após a contratação.</p>
+    <p>4.3.2. Após o prazo de 7 dias, não haverá reembolso proporcional pelo período não utilizado. O cancelamento terá efeito de não renovação para o próximo ciclo, mantendo o acesso até o fim do período pago.</p>
+    <h3>4.4. Custos de Terceiros</h3>
+    <div class="warning-box">
+      <p>Os valores cobrados pelo Skalla.ai referem-se exclusivamente ao uso da plataforma. Custos adicionais decorrentes de serviços de terceiros são de responsabilidade do Cliente, incluindo tarifas da Meta/WhatsApp (API oficial), consumo de IA (Anthropic) e outros serviços integrados.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s5">
+    <div class="section-header">
+      <div class="section-number">05</div>
+      <h2>Obrigações e Responsabilidades</h2>
+    </div>
+    <h3>5.1. Obrigações do Skalla.ai</h3>
+    <ul>
+      <li>Manter o sistema disponível e funcional, com esforços razoáveis de uptime;</li>
+      <li>Publicar atualizações de segurança e correção de bugs;</li>
+      <li>Prestar suporte técnico dentro do escopo contratado;</li>
+      <li>Proteger os dados dos Clientes conforme a LGPD.</li>
+    </ul>
+    <h3>5.2. Obrigações do Cliente</h3>
+    <ul>
+      <li>Manter suas credenciais de acesso em sigilo;</li>
+      <li>Utilizar o sistema em conformidade com as políticas da Meta/WhatsApp;</li>
+      <li>Obter consentimento dos seus leads para recebimento de mensagens automatizadas;</li>
+      <li>Manter seus dados cadastrais atualizados;</li>
+      <li>Gerenciar seus usuários (atendentes) e sua equipe.</li>
+    </ul>
+    <h3>5.3. Limitação de Responsabilidade</h3>
+    <p>O Skalla.ai não será responsabilizado por danos decorrentes de: instabilidades em serviços de terceiros (WhatsApp, Meta, Anthropic), decisões tomadas com base nas automações de IA, bloqueios de números aplicados pela Meta, ou falhas de infraestrutura fora do controle da Licenciante.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s6">
+    <div class="section-header">
+      <div class="section-number">06</div>
+      <h2>Integrações com Terceiros</h2>
+    </div>
+    <p>6.1. O Skalla.ai integra-se com serviços de terceiros para seu pleno funcionamento, incluindo:</p>
+    <ul>
+      <li><strong>Meta/WhatsApp:</strong> envio e recebimento de mensagens;</li>
+      <li><strong>Anthropic (Claude):</strong> processamento de linguagem natural e IA conversacional;</li>
+      <li><strong>Stripe:</strong> processamento de pagamentos;</li>
+      <li><strong>Resend:</strong> envio de e-mails transacionais;</li>
+      <li><strong>Groq/Whisper:</strong> transcrição de áudios.</li>
+    </ul>
+    <p>6.2. O Skalla.ai não possui controle sobre as políticas, disponibilidade ou alterações realizadas por esses terceiros. Eventuais indisponibilidades não isentam o Cliente do pagamento da licença, nem geram direito a reembolso.</p>
+    <p>6.3. O Cliente declara ciência dos Termos de Uso do WhatsApp Business: <code>whatsapp.com/legal/business-terms</code></p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s7">
+    <div class="section-header">
+      <div class="section-number">07</div>
+      <h2>Privacidade e Proteção de Dados (LGPD)</h2>
+    </div>
+    <p>7.1. Para fins da Lei Geral de Proteção de Dados (Lei nº 13.709/2018):</p>
+    <ul>
+      <li><strong>Skalla.ai como Operadora:</strong> atua como Operadora dos dados dos leads e contatos processados pelo sistema em nome do Cliente;</li>
+      <li><strong>Cliente como Controlador:</strong> o Cliente é o Controlador dos dados pessoais de seus leads, clientes finais e contatos que trafegam pelo Skalla.ai.</li>
+    </ul>
+    <p>7.2. O Cliente é o único responsável por obter o consentimento adequado dos titulares de dados e por cumprir as obrigações legais perante seus próprios clientes e leads.</p>
+    <p>7.3. O Skalla.ai adota medidas técnicas e organizacionais adequadas para proteger os dados processados, incluindo criptografia, controles de acesso e isolamento multi-tenant.</p>
+    <p>7.4. Para mais detalhes sobre coleta, uso e compartilhamento de dados, consulte nossa <a href="/privacidade" style="color: var(--accent-light);">Política de Privacidade</a>.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s8">
+    <div class="section-header">
+      <div class="section-number">08</div>
+      <h2>Propriedade Intelectual</h2>
+    </div>
+    <p>8.1. O Skalla.ai, seu código-fonte, arquitetura, logotipos, documentações e APIs são de propriedade intelectual exclusiva da Suppera Publicidade Ltda. A contratação da licença não transfere qualquer direito autoral ou de propriedade ao Cliente.</p>
+    <p>8.2. Pertencem exclusivamente ao Cliente:</p>
+    <ul>
+      <li>A base de dados de leads e históricos de conversas gerados em sua conta;</li>
+      <li>Os conteúdos inseridos no sistema (textos, scripts de vendas, configurações);</li>
+      <li>Os resultados de vendas e conversões gerados pelo uso da plataforma.</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s9">
+    <div class="section-header">
+      <div class="section-number">09</div>
+      <h2>Disposições Gerais</h2>
+    </div>
+    <p>9.1. O Skalla.ai poderá, a qualquer momento, modificar estes Termos. Clientes com plano ativo serão notificados com antecedência por e-mail ou aviso no painel.</p>
+    <p>9.2. A eventual tolerância do Skalla.ai em exigir o cumprimento de qualquer cláusula não configurará renúncia de direitos, podendo ser exigida a qualquer tempo.</p>
+    <p>9.3. O Cliente não poderá ceder ou transferir este contrato a terceiros sem prévia autorização por escrito do Skalla.ai.</p>
+    <p>9.4. Se qualquer disposição for considerada inválida por tribunal competente, as demais permanecerão em pleno vigor.</p>
+    <p>9.5. Para dúvidas ou solicitações relacionadas a estes Termos, entre em contato: <code>skalla.tecnologia@gmail.com</code></p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="s10">
+    <div class="section-header">
+      <div class="section-number">10</div>
+      <h2>Foro e Legislação Aplicável</h2>
+    </div>
+    <p>10.1. Este contrato é regido pelas leis da República Federativa do Brasil, em especial pelo Código Civil, Código de Defesa do Consumidor e Lei de Software (Lei nº 9.609/1998).</p>
+    <p>10.2. Fica eleito o foro da Comarca de <strong>Campina Grande — PB</strong> como competente para dirimir quaisquer litígios oriundos deste contrato, com renúncia expressa a qualquer outro foro, por mais privilegiado que seja.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Skalla.ai — Suppera Publicidade Ltda. Todos os direitos reservados.</p>
+  <p><a href="/privacidade">Política de Privacidade</a> · <a href="mailto:skalla.tecnologia@gmail.com">skalla.tecnologia@gmail.com</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skalla.ai - Automação Inteligente que Escala suas Vendas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50:  '#f3eeff',
+              100: '#e0d4ff',
+              200: '#c4abff',
+              300: '#a07af5',
+              400: '#8a5ce8',
+              500: '#7340d8',
+              600: '#5e2ebf',
+              700: '#4a1fa0',
+              800: '#351580',
+              900: '#1e0b55',
+              950: '#0a0412',
+            },
+            accent: {
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+            },
+            surface: {
+              900: '#0d0820',
+              800: '#130d2e',
+              700: '#1a1240',
+              600: '#221752',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #06030f;
+      color: #f1eeff;
+      overflow-x: hidden;
+    }
+    
+    .perspective-1000 { perspective: 1000px; }
+    .transform-gpu { transform: translateZ(0); }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    .platform-img {
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+    .platform-img.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+    .platform-img.inactive {
+      opacity: 0;
+      transform: scale(0.98);
+      pointer-events: none;
+    }
+
+    .grad-text {
+      background: linear-gradient(135deg, #a07af5 0%, #6366f1 50%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .grad-btn {
+      background: linear-gradient(135deg, #7340d8 0%, #5e2ebf 50%, #4f46e5 100%);
+    }
+    .grad-btn:hover {
+      box-shadow: 0 0 40px -10px rgba(115, 64, 216, 0.7);
+      transform: scale(1.02);
+    }
+
+    .founder-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-mark {
+      font-size: 120px;
+      line-height: 0.8;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: rgba(123,82,212,0.15);
+      position: absolute;
+      top: -20px;
+      left: -10px;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Background Effects -->
+  <div class="fixed inset-0 z-0 pointer-events-none">
+    <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full mix-blend-screen" style="background: radial-gradient(ellipse, rgba(115,64,216,0.18) 0%, transparent 70%); filter: blur(80px);"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full mix-blend-screen" style="background: radial-gradient(ellipse, rgba(79,70,229,0.15) 0%, transparent 70%); filter: blur(80px);"></div>
+    <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+  </div>
+
+  <div class="relative z-10">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50" style="border-bottom: 1px solid rgba(115,64,216,0.2); background: rgba(6,3,15,0.85); backdrop-filter: blur(16px);">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="flex items-center">
+          <img src="./logomarca300x80branca.png" alt="Skalla.ai" style="height: 28px; width: auto;" />
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium" style="color: #c4abff;">
+          <a href="#como-funciona" class="hover:text-white transition-colors">Como funciona</a>
+          <a href="#recursos" class="hover:text-white transition-colors">Recursos</a>
+          <a href="#planos" class="hover:text-white transition-colors">Planos</a>
+        </div>
+        <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Skalla.ai" target="_blank" class="px-5 py-2.5 rounded-full text-sm font-semibold transition-colors inline-block" style="background: rgba(115,64,216,0.15); border: 1px solid rgba(160,122,245,0.4); color: #c4abff;">
+          Agendar Demo
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="pt-40 pb-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#7b3fe412_1px,transparent_1px),linear-gradient(to_bottom,#7b3fe412_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+          <div class="max-w-2xl animate-on-scroll">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8" style="background: rgba(115,64,216,0.12); border: 1px solid rgba(160,122,245,0.3); color: #a07af5; backdrop-filter: blur(8px);">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background: #a07af5;"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2" style="background: #7340d8;"></span>
+              </span>
+              Automação inteligente que escala suas vendas
+            </div>
+            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6 text-white">
+              Marketing e comercial finalmente <span class="grad-text">trabalhando juntos.</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 leading-relaxed max-w-xl" style="color: #9d8cc4;">
+              Um sistema de IA que responde em segundos, qualifica leads com inteligência e entrega oportunidades prontas para o seu time fechar — sem atrito entre os times, sem lead perdido.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Skalla.ai" target="_blank" class="grad-btn h-14 px-8 rounded-full text-white font-bold text-lg transition-all flex items-center justify-center gap-2 group">
+                Ver na Prática
+                <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+              <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Skalla.ai" target="_blank" class="h-14 px-8 rounded-full font-semibold text-lg transition-all flex items-center justify-center text-white" style="background: rgba(19,13,46,0.8); border: 1px solid rgba(115,64,216,0.4); backdrop-filter: blur(8px);">
+                Entender o Fluxo
+              </a>
+            </div>
+            
+            <div class="mt-12 flex items-center gap-4 text-sm" style="color: #6b5a8a;">
+              <div class="flex -space-x-2">
+                <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center overflow-hidden" style="border-color: #06030f; background: #1a1240;"><img src="https://picsum.photos/seed/user1/100/100" alt="User" class="w-full h-full object-cover opacity-80" referrerpolicy="no-referrer" /></div>
+                <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center overflow-hidden" style="border-color: #06030f; background: #1a1240;"><img src="https://picsum.photos/seed/user2/100/100" alt="User" class="w-full h-full object-cover opacity-80" referrerpolicy="no-referrer" /></div>
+                <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center overflow-hidden" style="border-color: #06030f; background: #1a1240;"><img src="https://picsum.photos/seed/user3/100/100" alt="User" class="w-full h-full object-cover opacity-80" referrerpolicy="no-referrer" /></div>
+                <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center overflow-hidden" style="border-color: #06030f; background: #1a1240;"><img src="https://picsum.photos/seed/user4/100/100" alt="User" class="w-full h-full object-cover opacity-80" referrerpolicy="no-referrer" /></div>
+              </div>
+              <p>Negócios que uniram marketing e comercial com o <strong style="color: #c4abff;">Skalla.ai</strong></p>
+            </div>
+          </div>
+
+          <div class="relative perspective-1000 animate-on-scroll delay-200">
+            <div class="absolute inset-0 rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(115,64,216,0.3) 0%, rgba(79,70,229,0.2) 50%, transparent 70%); filter: blur(60px);"></div>
+            
+            <div class="relative rounded-3xl p-5 shadow-2xl transform-gpu transition-transform duration-500" style="background: rgba(19,13,46,0.85); backdrop-filter: blur(24px); border: 1px solid rgba(115,64,216,0.3); transform: rotateY(10deg) scale(0.95);" onmouseover="this.style.transform='rotateY(0deg) scale(1)'" onmouseout="this.style.transform='rotateY(10deg) scale(0.95)'">
+              <div class="flex items-center justify-between pb-4 mb-5" style="border-bottom: 1px solid rgba(115,64,216,0.2);">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-inner" style="background: linear-gradient(135deg, #1a1240, #0d0820); border: 1px solid rgba(115,64,216,0.4);">
+                    <i data-lucide="bot" class="w-6 h-6" style="color: #a07af5;"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold" style="color: #e0d4ff;">Skalla.ai — Atendimento</div>
+                    <div class="text-xs flex items-center gap-1.5 font-medium" style="color: #4ade80;">
+                      <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
+                      Online e operando
+                    </div>
+                  </div>
+                </div>
+                <div class="text-xs font-medium px-3 py-1 rounded-full" style="color: #6b5a8a; background: rgba(115,64,216,0.1);">Agora mesmo</div>
+              </div>
+              
+              <div class="space-y-5" id="hero-chat">
+                <div class="flex gap-3 opacity-0 -translate-x-4 transition-all duration-500" id="msg-1">
+                  <div class="w-8 h-8 rounded-full shrink-0 overflow-hidden" style="background: #1a1240;">
+                    <img src="https://picsum.photos/seed/lead1/100/100" alt="Lead" class="w-full h-full object-cover opacity-80" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="rounded-2xl rounded-tl-none p-3.5 text-sm max-w-[85%] shadow-sm" style="background: rgba(26,18,64,0.8); color: #c4abff;">
+                    Olá! Vi o anúncio de vocês e gostaria de saber mais sobre os planos.
+                  </div>
+                </div>
+                
+                <div class="flex gap-3 flex-row-reverse opacity-0 translate-x-4 transition-all duration-500" id="msg-2">
+                  <div class="w-8 h-8 rounded-full shrink-0 flex items-center justify-center grad-btn" style="box-shadow: 0 4px 20px rgba(115,64,216,0.3);">
+                    <i data-lucide="zap" class="w-4 h-4 text-white"></i>
+                  </div>
+                  <div class="rounded-2xl rounded-tr-none p-3.5 text-sm max-w-[85%] shadow-sm" style="background: rgba(115,64,216,0.15); border: 1px solid rgba(160,122,245,0.2); color: #e0d4ff;">
+                    Olá! Que ótimo ter você aqui. Antes de tudo, me conta: qual é o principal desafio do seu processo comercial hoje?
+                  </div>
+                </div>
+                
+                <div class="flex justify-center pt-2 opacity-0 scale-90 transition-all duration-500" id="msg-3">
+                  <span class="text-xs font-medium px-4 py-1.5 rounded-full flex items-center gap-2" style="color: #a07af5; background: rgba(115,64,216,0.12); border: 1px solid rgba(160,122,245,0.2);">
+                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+                    Lead qualificado em 12 segundos
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pain Section -->
+      <section class="py-24 px-6 relative overflow-hidden" style="background: #06030f; border-top: 1px solid rgba(115,64,216,0.12); border-bottom: 1px solid rgba(115,64,216,0.12);">
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="text-center max-w-3xl mx-auto mb-20 animate-on-scroll">
+            <h2 class="font-display text-3xl md:text-5xl font-bold mb-6 leading-tight text-white">
+              O tráfego traz o lead.<br/>
+              <span style="color: #3d2b6b;">A falta de processo joga ele fora.</span>
+            </h2>
+            <p class="text-lg leading-relaxed" style="color: #9d8cc4;">
+              Você investe em marketing, o lead demonstra interesse e chama no WhatsApp. Mas o comercial não dá conta de responder a tempo — e quando responde, o lead já foi embora.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="animate-on-scroll rounded-3xl p-8" style="background: rgba(19,13,46,0.4); border: 1px solid rgba(115,64,216,0.2); backdrop-filter: blur(8px);">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-8" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="clock" class="w-7 h-7" style="color: #6b5a8a;"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4 text-white">Demora na primeira resposta</h3>
+              <p class="mb-8 text-sm leading-relaxed" style="color: #7a6a9a;">A chance de conversão cai 80% se o lead não for respondido nos primeiros 5 minutos. Cada minuto sem resposta é receita perdida.</p>
+              <div class="pt-6 flex items-end justify-between" style="border-top: 1px solid rgba(115,64,216,0.15);">
+                <span class="text-sm font-medium uppercase tracking-wider" style="color: #4a3a6a;">Conversão</span>
+                <span class="text-3xl font-display font-bold" style="color: #7340d8;">-80%</span>
+              </div>
+            </div>
+            <div class="animate-on-scroll delay-100 rounded-3xl p-8" style="background: rgba(19,13,46,0.4); border: 1px solid rgba(115,64,216,0.2); backdrop-filter: blur(8px);">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-8" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="message-square" class="w-7 h-7" style="color: #6b5a8a;"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4 text-white">Follow-up esquecido</h3>
+              <p class="mb-8 text-sm leading-relaxed" style="color: #7a6a9a;">44% dos vendedores desistem após o primeiro contato. 80% das vendas exigem pelo menos 5 interações. O follow-up manual simplesmente não escala.</p>
+              <div class="pt-6 flex items-end justify-between" style="border-top: 1px solid rgba(115,64,216,0.15);">
+                <span class="text-sm font-medium uppercase tracking-wider" style="color: #4a3a6a;">Vendas perdidas</span>
+                <span class="text-3xl font-display font-bold" style="color: #7340d8;">80%</span>
+              </div>
+            </div>
+            <div class="animate-on-scroll delay-200 rounded-3xl p-8" style="background: rgba(19,13,46,0.4); border: 1px solid rgba(115,64,216,0.2); backdrop-filter: blur(8px);">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-8" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="git-branch" class="w-7 h-7" style="color: #6b5a8a;"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4 text-white">Richa entre times</h3>
+              <p class="mb-8 text-sm leading-relaxed" style="color: #7a6a9a;">Marketing culpa o comercial. Comercial culpa o marketing. Enquanto os dois discutem, o lead fecha com o concorrente que tinha um processo melhor.</p>
+              <div class="pt-6 flex items-end justify-between" style="border-top: 1px solid rgba(115,64,216,0.15);">
+                <span class="text-sm font-medium uppercase tracking-wider" style="color: #4a3a6a;">Potencial desperdiçado</span>
+                <span class="text-3xl font-display font-bold" style="color: #7340d8;">∞</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mechanism Section -->
+      <section id="como-funciona" class="py-32 px-6 relative overflow-hidden" style="background: #06030f;">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(115,64,216,0.1) 0%, transparent 70%); filter: blur(80px);"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="text-center max-w-3xl mx-auto mb-24 animate-on-scroll">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-6" style="background: rgba(19,13,46,0.8); border: 1px solid rgba(115,64,216,0.3); color: #a07af5;">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+              Como funciona
+            </div>
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white">
+              Um pipeline que trabalha enquanto você dorme.
+            </h2>
+            <p class="text-lg" style="color: #9d8cc4;">
+              Do primeiro contato até a transferência para o comercial, o Skalla.ai assume o processo e entrega oportunidades reais — não apenas leads.
+            </p>
+          </div>
+
+          <div class="relative max-w-5xl mx-auto">
+            <div class="absolute top-24 left-0 w-full h-0.5 hidden lg:block" style="background: linear-gradient(to right, rgba(19,13,46,0) 0%, rgba(115,64,216,0.5) 50%, rgba(19,13,46,0) 100%);"></div>
+            
+            <div class="grid lg:grid-cols-4 gap-8 relative z-10">
+              <div class="relative group animate-on-scroll">
+                <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-8 relative z-10 shadow-xl" style="background: rgba(19,13,46,1); border: 2px solid rgba(115,64,216,0.3);">
+                  <i data-lucide="zap" class="w-6 h-6" style="color: #6b5a8a;"></i>
+                  <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background: rgba(26,18,64,1); border: 1px solid rgba(115,64,216,0.4); color: #c4abff;">01</div>
+                </div>
+                <div class="rounded-2xl p-6 text-center h-full" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+                  <h3 class="text-lg font-bold mb-3" style="color: #e0d4ff;">Resposta Imediata</h3>
+                  <p class="text-sm leading-relaxed" style="color: #7a6a9a;">O lead entra em contato e é atendido em segundos, 24 horas por dia, 7 dias por semana.</p>
+                </div>
+              </div>
+              <div class="relative group animate-on-scroll delay-100">
+                <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-8 relative z-10 shadow-xl" style="background: rgba(19,13,46,1); border: 2px solid rgba(115,64,216,0.3);">
+                  <i data-lucide="bot" class="w-6 h-6" style="color: #6b5a8a;"></i>
+                  <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background: rgba(26,18,64,1); border: 1px solid rgba(115,64,216,0.4); color: #c4abff;">02</div>
+                </div>
+                <div class="rounded-2xl p-6 text-center h-full" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+                  <h3 class="text-lg font-bold mb-3" style="color: #e0d4ff;">Qualificação Inteligente</h3>
+                  <p class="text-sm leading-relaxed" style="color: #7a6a9a;">A IA conduz a conversa seguindo o roteiro de vendas personalizado do seu negócio.</p>
+                </div>
+              </div>
+              <div class="relative group animate-on-scroll delay-200">
+                <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-8 relative z-10 shadow-xl" style="background: rgba(19,13,46,1); border: 2px solid rgba(115,64,216,0.3);">
+                  <i data-lucide="clock" class="w-6 h-6" style="color: #6b5a8a;"></i>
+                  <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background: rgba(26,18,64,1); border: 1px solid rgba(115,64,216,0.4); color: #c4abff;">03</div>
+                </div>
+                <div class="rounded-2xl p-6 text-center h-full" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+                  <h3 class="text-lg font-bold mb-3" style="color: #e0d4ff;">Reengajamento Automático</h3>
+                  <p class="text-sm leading-relaxed" style="color: #7a6a9a;">Lead parou de responder? O sistema retoma o contato automaticamente nos dias seguintes.</p>
+                </div>
+              </div>
+              <div class="relative group animate-on-scroll delay-300">
+                <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-8 relative z-10 shadow-xl" style="background: rgba(19,13,46,1); border: 2px solid rgba(115,64,216,0.3);">
+                  <i data-lucide="trending-up" class="w-6 h-6" style="color: #6b5a8a;"></i>
+                  <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background: rgba(26,18,64,1); border: 1px solid rgba(115,64,216,0.4); color: #c4abff;">04</div>
+                </div>
+                <div class="rounded-2xl p-6 text-center h-full" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+                  <h3 class="text-lg font-bold mb-3" style="color: #e0d4ff;">Transferência Quente</h3>
+                  <p class="text-sm leading-relaxed" style="color: #7a6a9a;">O comercial recebe apenas leads já qualificados — prontos para a conversa de fechamento.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workspace Section -->
+      <section id="recursos" class="py-32 px-6 relative overflow-hidden" style="background: #06030f;">
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="animate-on-scroll">
+              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8" style="background: rgba(115,64,216,0.12); border: 1px solid rgba(160,122,245,0.3); color: #a07af5;">
+                <span class="w-2 h-2 rounded-full" style="background: #7340d8;"></span>
+                Workspace Skalla.ai
+              </div>
+              <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-6">
+                <span class="text-white">Controle total,</span><br/>
+                <span style="color: #3d2b6b;">visibilidade completa.</span>
+              </h2>
+              <p class="text-lg mb-12 leading-relaxed" style="color: #9d8cc4;">
+                Acompanhe cada conversa, veja em qual etapa os leads estão e monitore os resultados do seu time em tempo real — tudo em um painel desenhado para conversão.
+              </p>
+              <div class="space-y-8">
+                <div class="flex gap-4 items-start">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.4);">
+                    <i data-lucide="circle-dot" class="w-4 h-4" style="color: #7340d8;"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-white mb-1">Relatório de Desempenho</h3>
+                    <p class="text-sm leading-relaxed" style="color: #7a6a9a;">Acompanhe total de leads, vendas fechadas pela IA e valor gerado no período — em tempo real.</p>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.4);">
+                    <i data-lucide="circle-dot" class="w-4 h-4" style="color: #7340d8;"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-white mb-1">Kanban Inteligente</h3>
+                    <p class="text-sm leading-relaxed" style="color: #7a6a9a;">Leads avançam de etapa automaticamente conforme o contexto da conversa no WhatsApp.</p>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.4);">
+                    <i data-lucide="circle-dot" class="w-4 h-4" style="color: #7340d8;"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-white mb-1">Equipe Ilimitada</h3>
+                    <p class="text-sm leading-relaxed" style="color: #7a6a9a;">Cadastre quantos atendentes precisar, com controle de acesso e notificações individuais por WhatsApp.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="animate-on-scroll delay-200">
+              <div class="rounded-2xl overflow-hidden shadow-2xl" style="background: rgba(13,8,32,0.95); border: 1px solid rgba(115,64,216,0.3);">
+                <div class="flex items-center justify-between px-5 py-3" style="background: rgba(10,4,18,0.9); border-bottom: 1px solid rgba(115,64,216,0.2);">
+                  <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full" style="background: rgba(239,68,68,0.7);"></div>
+                    <div class="w-3 h-3 rounded-full" style="background: rgba(234,179,8,0.7);"></div>
+                    <div class="w-3 h-3 rounded-full" style="background: rgba(34,197,94,0.7);"></div>
+                  </div>
+                  <div class="flex items-center gap-2 text-xs font-medium" style="color: #4ade80;">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    IA Ativa
+                  </div>
+                  <div class="w-6 h-6 rounded-full" style="background: rgba(26,18,64,0.8);"></div>
+                </div>
+                <div class="p-5">
+                  <div class="flex items-center justify-between mb-5">
+                    <div>
+                      <p class="font-bold text-white text-sm">Relatório de Desempenho</p>
+                      <p class="text-xs" style="color: #6b5a8a;">Últimos 30 dias</p>
+                    </div>
+                    <button class="text-xs px-3 py-1.5 rounded-lg" style="border: 1px solid rgba(115,64,216,0.3); color: #a07af5;">Exportar</button>
+                  </div>
+                  <div class="grid grid-cols-3 gap-3 mb-5">
+                    <div class="rounded-xl p-3" style="background: rgba(26,18,64,0.6); border: 1px solid rgba(115,64,216,0.15);">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs" style="color: #6b5a8a;">Total Leads</span>
+                        <i data-lucide="trending-up" class="w-3.5 h-3.5" style="color: #a07af5;"></i>
+                      </div>
+                      <p class="text-xl font-bold text-white">61</p>
+                      <p class="text-xs mt-1" style="color: #4ade80;">no período</p>
+                    </div>
+                    <div class="rounded-xl p-3" style="background: rgba(26,18,64,0.6); border: 1px solid rgba(115,64,216,0.15);">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs" style="color: #6b5a8a;">Vendas IA</span>
+                        <i data-lucide="zap" class="w-3.5 h-3.5" style="color: #a07af5;"></i>
+                      </div>
+                      <p class="text-xl font-bold" style="color: #a07af5;">2</p>
+                      <p class="text-xs mt-1" style="color: #6b5a8a;">automático</p>
+                    </div>
+                    <div class="rounded-xl p-3" style="background: rgba(26,18,64,0.6); border: 1px solid rgba(115,64,216,0.15);">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs" style="color: #6b5a8a;">Valor Total</span>
+                        <i data-lucide="check-circle" class="w-3.5 h-3.5" style="color: #4ade80;"></i>
+                      </div>
+                      <p class="text-xl font-bold" style="color: #4ade80;">R$1.367</p>
+                      <p class="text-xs mt-1" style="color: #4ade80;">em vendas</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-white mb-3">Kanban em Tempo Real</p>
+                    <div class="grid grid-cols-3 gap-3">
+                      <div class="rounded-xl p-3" style="background: rgba(19,13,46,0.8); border: 1px solid rgba(115,64,216,0.15);">
+                        <div class="flex items-center justify-between mb-3">
+                          <span class="text-xs uppercase tracking-wider" style="color: #6b5a8a;">Novos</span>
+                          <span class="text-xs font-bold px-1.5 py-0.5 rounded" style="background: rgba(115,64,216,0.2); color: #a07af5;">48</span>
+                        </div>
+                        <div class="space-y-2">
+                          <div class="rounded-lg p-2 flex items-center gap-2" style="background: rgba(26,18,64,0.6);">
+                            <div class="w-4 h-4 rounded-full shrink-0" style="background: #7340d8;"></div>
+                            <div class="flex-1 space-y-1">
+                              <div class="h-1.5 rounded-full" style="background: rgba(115,64,216,0.4); width: 75%;"></div>
+                              <div class="h-1.5 rounded-full" style="background: rgba(115,64,216,0.2); width: 50%;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="rounded-xl p-3" style="background: rgba(19,13,46,0.8); border: 1px solid rgba(115,64,216,0.15);">
+                        <div class="flex items-center justify-between mb-3">
+                          <span class="text-xs uppercase tracking-wider" style="color: #6b5a8a;">Aguardando</span>
+                          <span class="text-xs font-bold px-1.5 py-0.5 rounded" style="background: rgba(115,64,216,0.2); color: #a07af5;">6</span>
+                        </div>
+                        <div class="space-y-2">
+                          <div class="rounded-lg p-2 flex items-center gap-2" style="background: rgba(26,18,64,0.6);">
+                            <div class="w-4 h-4 rounded-full shrink-0" style="background: #f59e0b;"></div>
+                            <div class="flex-1 space-y-1">
+                              <div class="h-1.5 rounded-full" style="background: rgba(245,158,11,0.4); width: 60%;"></div>
+                              <div class="h-1.5 rounded-full" style="background: rgba(245,158,11,0.2); width: 40%;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="rounded-xl p-3" style="background: rgba(19,13,46,0.8); border: 1px solid rgba(115,64,216,0.15);">
+                        <div class="flex items-center justify-between mb-3">
+                          <span class="text-xs uppercase tracking-wider" style="color: #6b5a8a;">Concluídos</span>
+                          <span class="text-xs font-bold px-1.5 py-0.5 rounded" style="background: rgba(74,222,128,0.15); color: #4ade80;">2</span>
+                        </div>
+                        <div class="space-y-2">
+                          <div class="rounded-lg p-2 flex items-center gap-2" style="background: rgba(26,18,64,0.6);">
+                            <div class="w-4 h-4 rounded-full shrink-0" style="background: #4ade80;"></div>
+                            <div class="flex-1 space-y-1">
+                              <div class="h-1.5 rounded-full" style="background: rgba(74,222,128,0.4); width: 90%;"></div>
+                              <div class="h-1.5 rounded-full" style="background: rgba(74,222,128,0.2); width: 65%;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Platform Preview Section -->
+      <section class="py-32 px-6 relative overflow-hidden" style="background: #06030f;">
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at top, rgba(30,11,85,0.25) 0%, transparent 70%);"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white">
+              Por dentro do <span class="grad-text">Skalla.ai</span>
+            </h2>
+            <p class="text-xl max-w-2xl mx-auto" style="color: #9d8cc4;">
+              Uma interface limpa e poderosa. Tudo que você precisa para gerenciar seus leads e sua equipe em um só lugar.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-2 mb-12 animate-on-scroll delay-100" id="platform-tabs">
+            <button onclick="switchTab(0)" class="platform-tab active flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300" style="background: rgba(115,64,216,0.15); color: #a07af5; border: 1px solid rgba(160,122,245,0.35); box-shadow: 0 0 20px -5px rgba(115,64,216,0.3);">
+              <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Relatórios
+            </button>
+            <button onclick="switchTab(1)" class="platform-tab flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300" style="background: rgba(19,13,46,0.6); color: #6b5a8a; border: 1px solid rgba(115,64,216,0.2);">
+              <i data-lucide="kanban-square" class="w-4 h-4"></i> Kanban
+            </button>
+            <button onclick="switchTab(2)" class="platform-tab flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300" style="background: rgba(19,13,46,0.6); color: #6b5a8a; border: 1px solid rgba(115,64,216,0.2);">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> Atendimento IA
+            </button>
+            <button onclick="switchTab(3)" class="platform-tab flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300" style="background: rgba(19,13,46,0.6); color: #6b5a8a; border: 1px solid rgba(115,64,216,0.2);">
+              <i data-lucide="brain-circuit" class="w-4 h-4"></i> Configuração da IA
+            </button>
+            <button onclick="switchTab(4)" class="platform-tab flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300" style="background: rgba(19,13,46,0.6); color: #6b5a8a; border: 1px solid rgba(115,64,216,0.2);">
+              <i data-lucide="phone-forwarded" class="w-4 h-4"></i> Transferência
+            </button>
+            <button onclick="switchTab(5)" class="platform-tab flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300" style="background: rgba(19,13,46,0.6); color: #6b5a8a; border: 1px solid rgba(115,64,216,0.2);">
+              <i data-lucide="users" class="w-4 h-4"></i> Equipe
+            </button>
+          </div>
+
+          <div class="relative mx-auto max-w-5xl rounded-2xl overflow-hidden shadow-2xl animate-on-scroll delay-200" style="border: 1px solid rgba(115,64,216,0.3); background: rgba(19,13,46,0.6);">
+            <div class="h-10 flex items-center px-4 gap-2" style="background: rgba(13,8,32,0.9); border-bottom: 1px solid rgba(115,64,216,0.2);">
+              <div class="w-3 h-3 rounded-full" style="background: rgba(239,68,68,0.7);"></div>
+              <div class="w-3 h-3 rounded-full" style="background: rgba(234,179,8,0.7);"></div>
+              <div class="w-3 h-3 rounded-full" style="background: rgba(34,197,94,0.7);"></div>
+            </div>
+            <div class="relative aspect-[16/9] w-full" style="background: #0d0820;" id="platform-images">
+              <img src="./1.png" class="platform-img active absolute inset-0 w-full h-full object-cover object-top" alt="Relatórios Skalla.ai" />
+              <img src="./3.png" class="platform-img inactive absolute inset-0 w-full h-full object-cover object-top" alt="Kanban Skalla.ai" />
+              <img src="./4.png" class="platform-img inactive absolute inset-0 w-full h-full object-cover object-top" alt="Atendimento IA Skalla.ai" />
+              <img src="./6.png" class="platform-img inactive absolute inset-0 w-full h-full object-cover object-top" alt="Configuração IA Skalla.ai" />
+              <img src="./8.png" class="platform-img inactive absolute inset-0 w-full h-full object-cover object-top" alt="Transferência Skalla.ai" />
+              <img src="./5.png" class="platform-img inactive absolute inset-0 w-full h-full object-cover object-top" alt="Equipe Skalla.ai" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Founder Section -->
+      <section class="py-32 px-6 relative overflow-hidden founder-section" style="background: #06030f; border-top: 1px solid rgba(115,64,216,0.12);">
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(115,64,216,0.06) 0%, transparent 70%);"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Foto desktop -->
+            <div class="hidden lg:block animate-on-scroll relative">
+              <div class="absolute inset-0 rounded-3xl" style="background: radial-gradient(ellipse at right, rgba(115,64,216,0.15) 0%, transparent 70%);"></div>
+              <img src="./Background_pc.webp" alt="Artur Souza — Fundador Skalla.ai" class="w-full rounded-3xl object-cover" style="max-height: 520px; object-position: center top;" />
+            </div>
+
+            <!-- Texto -->
+            <div class="animate-on-scroll delay-100 relative">
+              <div class="quote-mark">"</div>
+
+              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8" style="background: rgba(115,64,216,0.12); border: 1px solid rgba(160,122,245,0.3); color: #a07af5;">
+                <i data-lucide="user" class="w-4 h-4"></i>
+                Por que o Skalla.ai existe
+              </div>
+
+              <h2 class="font-display text-3xl md:text-4xl font-bold mb-8 text-white leading-tight">
+                Seis anos dentro de agências me ensinaram que o problema nunca era o tráfego.
+              </h2>
+
+              <div class="space-y-5 text-base leading-relaxed" style="color: #9d8cc4;">
+                <p>Trabalhei com dezenas de negócios. Clínicas, academias, franquias, escritórios. Em todos eles, a mesma tensão: o time de marketing culpava o comercial por não converter os leads. O comercial culpava o marketing por trazer leads ruins. E no meio disso, o resultado ficava muito abaixo do potencial.</p>
+
+                <p>Percebi que os dois lados tinham razão — e que nenhum dos dois era o verdadeiro problema. <strong style="color: #e0d4ff;">A ausência de uma ponte entre eles era.</strong> Um sistema que pegasse a intenção gerada pelo marketing e transformasse em oportunidade real para o comercial, sem atrito, sem demora, sem ruído.</p>
+
+                <p>Decidi ir pelo caminho oposto ao mercado. Em vez de escolher um lado, uni os dois. O Skalla.ai é essa ponte — marketing potencializado, comercial otimizado, os dois extraindo o máximo juntos.</p>
+              </div>
+
+              <!-- Foto mobile -->
+              <div class="lg:hidden mt-8 mb-4">
+                <img src="./Background_mb.webp" alt="Artur Souza — Fundador Skalla.ai" class="w-48 h-48 rounded-2xl object-cover object-top mx-auto" />
+              </div>
+
+              <div class="mt-10 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full overflow-hidden hidden lg:block" style="border: 2px solid rgba(115,64,216,0.4);">
+                  <img src="./Background_mb.webp" alt="Artur Souza" class="w-full h-full object-cover object-top" />
+                </div>
+                <div>
+                  <div class="font-bold text-white">Artur Souza</div>
+                  <div class="text-sm" style="color: #6b5a8a;">Fundador & CEO — Skalla.ai · Grupo Suppera</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Diferenciais Section -->
+      <section class="py-32 px-6 relative overflow-hidden" style="background: #06030f;">
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="text-center max-w-3xl mx-auto mb-20 animate-on-scroll">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white">
+              Diferenciais que geram resultado.
+            </h2>
+            <p class="text-lg leading-relaxed" style="color: #9d8cc4;">
+              Não é apenas automação. É um sistema de inteligência comercial desenhado para maximizar o retorno do seu investimento em marketing.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-5">
+            <div class="animate-on-scroll rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="cpu" class="w-5 h-5" style="color: #a07af5;"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-3">IA Personalizada</h3>
+              <p class="text-sm leading-relaxed" style="color: #7a6a9a;">A IA adota o tom de voz da sua marca, segue seu roteiro de vendas e se apresenta com o nome que você definir — sem soar como robô.</p>
+            </div>
+            <div class="animate-on-scroll delay-100 rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="clock" class="w-5 h-5" style="color: #a07af5;"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-3">Reengajamento Automático</h3>
+              <p class="text-sm leading-relaxed" style="color: #7a6a9a;">Lead parou de responder? O Skalla.ai retoma o contato automaticamente nos dias seguintes (D1, D2, D3) dentro do horário comercial.</p>
+            </div>
+            <div class="animate-on-scroll delay-200 rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="arrow-left-right" class="w-5 h-5" style="color: #a07af5;"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-3">Transferência Inteligente</h3>
+              <p class="text-sm leading-relaxed" style="color: #7a6a9a;">Quando o lead demonstra intenção de compra, a IA notifica o comercial com o resumo da conversa e pausa a automação para o humano assumir.</p>
+            </div>
+            <div class="animate-on-scroll rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="users" class="w-5 h-5" style="color: #a07af5;"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-3">Equipe Ilimitada</h3>
+              <p class="text-sm leading-relaxed" style="color: #7a6a9a;">Cadastre quantos atendentes precisar, sem custo adicional. Cada um recebe notificações individuais quando um lead é transferido para ele.</p>
+            </div>
+            <div class="animate-on-scroll delay-100 rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="bar-chart-3" class="w-5 h-5" style="color: #a07af5;"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-3">Relatórios em Tempo Real</h3>
+              <p class="text-sm leading-relaxed" style="color: #7a6a9a;">Acompanhe leads, vendas, funil de conversão e follow-ups — tudo em um painel atualizado em tempo real, sem precisar de planilha.</p>
+            </div>
+            <div class="animate-on-scroll delay-200 rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                <i data-lucide="file-audio" class="w-5 h-5" style="color: #a07af5;"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-3">Biblioteca de Mídias</h3>
+              <p class="text-sm leading-relaxed" style="color: #7a6a9a;">A IA pode enviar áudios, imagens e PDFs no momento exato da conversa — apresentações, portfólios, promoções — tudo automatizado.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section id="planos" class="py-32 px-6 relative overflow-hidden" style="background: #06030f;">
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at top, rgba(30,11,85,0.25) 0%, transparent 60%);"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="text-center max-w-3xl mx-auto mb-20 animate-on-scroll">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+              Um investimento que se paga na primeira venda recuperada.
+            </h2>
+            <p class="text-lg" style="color: #9d8cc4;">Escolha o plano ideal para o volume do seu negócio. Sem fidelidade, sem surpresas.</p>
+          </div>
+
+          <div class="grid md:grid-cols-4 gap-6 items-center max-w-6xl mx-auto">
+
+            <!-- CRM Básico -->
+            <div class="animate-on-scroll rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <h3 class="text-xl font-bold text-white mb-1">CRM Básico</h3>
+              <p class="text-sm mb-6" style="color: #6b5a8a;">Organização sem automação.</p>
+              <div class="mb-8">
+                <span class="text-4xl font-display font-bold text-white">R$47</span>
+                <span class="text-sm" style="color: #6b5a8a;">/mês</span>
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Kanban de atendimento
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Até 1.000 mensagens/mês
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Equipe ilimitada
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #6b5a8a;">
+                  <i data-lucide="x-circle" class="w-4 h-4 shrink-0" style="color: #4a3a6a;"></i>
+                  Sem IA
+                </li>
+              </ul>
+              <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20CRM%20B%C3%A1sico%20do%20Skalla.ai" target="_blank" class="block w-full text-center py-3.5 rounded-xl font-semibold text-white transition-all" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                Começar Agora
+              </a>
+            </div>
+
+            <!-- Starter -->
+            <div class="animate-on-scroll delay-100 rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <h3 class="text-xl font-bold text-white mb-1">Starter</h3>
+              <p class="text-sm mb-6" style="color: #6b5a8a;">Para quem está começando a automatizar.</p>
+              <div class="mb-8">
+                <span class="text-4xl font-display font-bold text-white">R$147</span>
+                <span class="text-sm" style="color: #6b5a8a;">/mês</span>
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Até 250 leads/mês
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  IA de qualificação
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Reengajamento automático
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Equipe ilimitada
+                </li>
+              </ul>
+              <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20Starter%20do%20Skalla.ai" target="_blank" class="block w-full text-center py-3.5 rounded-xl font-semibold text-white transition-all" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                Começar Agora
+              </a>
+            </div>
+
+            <!-- Pro (destaque) -->
+            <div class="animate-on-scroll delay-200 rounded-2xl p-8 relative" style="background: rgba(26,13,56,0.9); border: 2px solid rgba(115,64,216,0.6); box-shadow: 0 0 40px -10px rgba(115,64,216,0.4);">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span class="text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider" style="background: linear-gradient(135deg, #7340d8, #4f46e5); color: white;">Mais Escolhido</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-1">Pro</h3>
+              <p class="text-sm mb-6" style="color: #6b5a8a;">Para negócios com alto volume de leads.</p>
+              <div class="mb-8">
+                <span class="text-4xl font-display font-bold grad-text">R$347</span>
+                <span class="text-sm" style="color: #6b5a8a;">/mês</span>
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-3 text-sm" style="color: #c4abff;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #a07af5;"></i>
+                  Até 600 leads/mês
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #c4abff;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #a07af5;"></i>
+                  IA avançada personalizada
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #c4abff;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #a07af5;"></i>
+                  Reengajamento D1, D2 e D3
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #c4abff;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #a07af5;"></i>
+                  Relatórios completos
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #c4abff;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #a07af5;"></i>
+                  Suporte prioritário
+                </li>
+              </ul>
+              <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20Pro%20do%20Skalla.ai" target="_blank" class="grad-btn block w-full text-center py-3.5 rounded-xl font-bold text-white transition-all">
+                Começar Agora
+              </a>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="animate-on-scroll delay-300 rounded-2xl p-8" style="background: rgba(19,13,46,0.5); border: 1px solid rgba(115,64,216,0.2);">
+              <h3 class="text-xl font-bold text-white mb-1">Enterprise</h3>
+              <p class="text-sm mb-6" style="color: #6b5a8a;">Para operações de alto volume.</p>
+              <div class="mb-8">
+                <span class="text-2xl font-display font-bold text-white">Sob consulta</span>
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Leads ilimitados
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  IA customizada
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Integrações personalizadas
+                </li>
+                <li class="flex items-center gap-3 text-sm" style="color: #9d8cc4;">
+                  <i data-lucide="check-circle" class="w-4 h-4 shrink-0" style="color: #7340d8;"></i>
+                  Gerente de conta dedicado
+                </li>
+              </ul>
+              <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Enterprise%20do%20Skalla.ai" target="_blank" class="block w-full text-center py-3.5 rounded-xl font-semibold text-white transition-all" style="background: rgba(26,18,64,0.8); border: 1px solid rgba(115,64,216,0.3);">
+                Falar com Consultor
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing CTA -->
+      <section class="py-32 px-6 relative overflow-hidden" style="background: #06030f;">
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(79,46,191,0.15) 0%, transparent 70%);"></div>
+
+        <div class="max-w-3xl mx-auto text-center relative z-10 animate-on-scroll">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-10" style="background: rgba(19,13,46,0.8); border: 1px solid rgba(115,64,216,0.3); color: #c4abff;">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            Comece a converter hoje
+          </div>
+
+          <h2 class="font-display text-5xl md:text-6xl font-bold mb-8 leading-tight text-white">
+            Marketing e comercial.<br/>
+            <span class="grad-text">Finalmente unidos.</span>
+          </h2>
+
+          <p class="text-xl mb-12 leading-relaxed" style="color: #9d8cc4;">
+            Pare de perder leads que você já pagou. Implemente o Skalla.ai e veja a diferença na sua conversão.
+          </p>
+
+          <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+            <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20Skalla.ai" target="_blank" class="grad-btn h-14 px-8 rounded-full text-white font-bold text-lg transition-all flex items-center justify-center gap-2 group">
+              Agendar Demonstração
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="https://wa.me/5583986576229?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20consultor%20do%20Skalla.ai" target="_blank" class="h-14 px-8 rounded-full font-semibold text-lg transition-all flex items-center justify-center text-white" style="background: rgba(19,13,46,0.8); border: 1px solid rgba(115,64,216,0.4); backdrop-filter: blur(8px);">
+              Falar com Consultor
+            </a>
+          </div>
+
+          <p class="text-sm" style="color: #4a3a6a;">Setup em menos de 24 horas. Sem fidelidade.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6" style="border-top: 1px solid rgba(115,64,216,0.15); background: #06030f;">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center">
+          <img src="./logomarca300x80branca.png" alt="Skalla.ai" style="height: 28px; width: auto;" />
+        </div>
+        <div class="flex gap-6 text-sm" style="color: #4a3a6a;">
+          <a href="/termos" class="hover:text-white transition-colors">Termos de Uso</a>
+          <a href="/privacidade" class="hover:text-white transition-colors">Política de Privacidade</a>
+        </div>
+        <div class="text-sm" style="color: #4a3a6a;">
+          © 2026 Skalla.ai — Suppera Publicidade Ltda. Todos os direitos reservados.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    function switchTab(index) {
+      const tabs = document.querySelectorAll('.platform-tab');
+      const images = document.querySelectorAll('.platform-img');
+      
+      tabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.style.cssText = "background: rgba(115,64,216,0.15); color: #a07af5; border: 1px solid rgba(160,122,245,0.35); box-shadow: 0 0 20px -5px rgba(115,64,216,0.3);";
+        } else {
+          tab.style.cssText = "background: rgba(19,13,46,0.6); color: #6b5a8a; border: 1px solid rgba(115,64,216,0.2);";
+        }
+        tab.classList.add('flex', 'items-center', 'gap-2', 'px-6', 'py-3', 'rounded-full', 'text-sm', 'font-medium', 'transition-all', 'duration-300');
+      });
+
+      images.forEach((img, i) => {
+        if (i === index) {
+          img.classList.remove('inactive');
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+          img.classList.add('inactive');
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
+    });
+
+    setTimeout(() => {
+      const msg1 = document.getElementById('msg-1');
+      if(msg1) { msg1.classList.remove('opacity-0', '-translate-x-4'); }
+    }, 800);
+
+    setTimeout(() => {
+      const msg2 = document.getElementById('msg-2');
+      if(msg2) { msg2.classList.remove('opacity-0', 'translate-x-4'); }
+    }, 2000);
+
+    setTimeout(() => {
+      const msg3 = document.getElementById('msg-3');
+      if(msg3) { msg3.classList.remove('opacity-0', 'scale-90'); }
+    }, 3000);
+  </script>
+</body>
+</html>

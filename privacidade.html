@@ -1,0 +1,533 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="pt-BR">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\
+<title>Pol\'edtica de Privacidade \'97 Skalla.ai</title>\
+<style>\
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');\
+\
+  :root \{\
+    --bg: #0a0a0f;\
+    --surface: #111118;\
+    --border: #1e1e2e;\
+    --accent: #7B52D4;\
+    --accent-light: #9b72f4;\
+    --text: #e8e8f0;\
+    --muted: #6b6b80;\
+    --white: #ffffff;\
+  \}\
+\
+  * \{ margin: 0; padding: 0; box-sizing: border-box; \}\
+\
+  body \{\
+    background: var(--bg);\
+    color: var(--text);\
+    font-family: 'Sora', sans-serif;\
+    font-size: 15px;\
+    line-height: 1.8;\
+  \}\
+\
+  body::before \{\
+    content: '';\
+    position: fixed;\
+    inset: 0;\
+    background-image:\
+      linear-gradient(rgba(123,82,212,0.04) 1px, transparent 1px),\
+      linear-gradient(90deg, rgba(123,82,212,0.04) 1px, transparent 1px);\
+    background-size: 40px 40px;\
+    pointer-events: none;\
+    z-index: 0;\
+  \}\
+\
+  header \{\
+    position: sticky;\
+    top: 0;\
+    z-index: 100;\
+    background: rgba(10,10,15,0.92);\
+    backdrop-filter: blur(12px);\
+    border-bottom: 1px solid var(--border);\
+    padding: 18px 40px;\
+    display: flex;\
+    align-items: center;\
+    gap: 12px;\
+  \}\
+\
+  .logo \{\
+    font-family: 'JetBrains Mono', monospace;\
+    font-weight: 500;\
+    font-size: 18px;\
+    color: var(--white);\
+    letter-spacing: -0.5px;\
+  \}\
+\
+  .logo span \{ color: var(--accent); \}\
+\
+  .badge \{\
+    background: rgba(123,82,212,0.15);\
+    border: 1px solid rgba(123,82,212,0.3);\
+    color: var(--accent-light);\
+    font-size: 11px;\
+    font-weight: 600;\
+    padding: 3px 10px;\
+    border-radius: 20px;\
+    letter-spacing: 0.5px;\
+    text-transform: uppercase;\
+  \}\
+\
+  main \{\
+    position: relative;\
+    z-index: 1;\
+    max-width: 800px;\
+    margin: 0 auto;\
+    padding: 60px 40px 100px;\
+  \}\
+\
+  .hero \{\
+    margin-bottom: 60px;\
+    padding-bottom: 40px;\
+    border-bottom: 1px solid var(--border);\
+  \}\
+\
+  .hero h1 \{\
+    font-size: 36px;\
+    font-weight: 700;\
+    color: var(--white);\
+    line-height: 1.2;\
+    margin-bottom: 16px;\
+    letter-spacing: -1px;\
+  \}\
+\
+  .hero h1 span \{ color: var(--accent); \}\
+\
+  .meta-info \{\
+    display: flex;\
+    gap: 24px;\
+    flex-wrap: wrap;\
+  \}\
+\
+  .meta-item \{\
+    font-family: 'JetBrains Mono', monospace;\
+    font-size: 12px;\
+    color: var(--muted);\
+  \}\
+\
+  .meta-item strong \{ color: var(--accent-light); font-weight: 500; \}\
+\
+  .toc \{\
+    background: var(--surface);\
+    border: 1px solid var(--border);\
+    border-radius: 12px;\
+    padding: 28px 32px;\
+    margin-bottom: 60px;\
+  \}\
+\
+  .toc h2 \{\
+    font-size: 11px;\
+    font-weight: 600;\
+    letter-spacing: 2px;\
+    text-transform: uppercase;\
+    color: var(--muted);\
+    margin-bottom: 16px;\
+  \}\
+\
+  .toc ol \{ list-style: none; counter-reset: toc; \}\
+\
+  .toc li \{\
+    counter-increment: toc;\
+    padding: 6px 0;\
+    border-bottom: 1px solid var(--border);\
+    display: flex;\
+    align-items: center;\
+    gap: 12px;\
+  \}\
+\
+  .toc li:last-child \{ border-bottom: none; \}\
+\
+  .toc li::before \{\
+    content: counter(toc, decimal-leading-zero);\
+    font-family: 'JetBrains Mono', monospace;\
+    font-size: 11px;\
+    color: var(--accent);\
+    min-width: 24px;\
+  \}\
+\
+  .toc a \{ color: var(--text); text-decoration: none; font-size: 14px; transition: color 0.2s; \}\
+  .toc a:hover \{ color: var(--accent-light); \}\
+\
+  section \{ margin-bottom: 56px; \}\
+\
+  .section-header \{\
+    display: flex;\
+    align-items: center;\
+    gap: 14px;\
+    margin-bottom: 24px;\
+  \}\
+\
+  .section-number \{\
+    font-family: 'JetBrains Mono', monospace;\
+    font-size: 11px;\
+    font-weight: 500;\
+    color: var(--accent);\
+    background: rgba(123,82,212,0.1);\
+    border: 1px solid rgba(123,82,212,0.2);\
+    padding: 4px 10px;\
+    border-radius: 6px;\
+    min-width: 36px;\
+    text-align: center;\
+  \}\
+\
+  h2 \{ font-size: 20px; font-weight: 600; color: var(--white); letter-spacing: -0.3px; \}\
+  h3 \{ font-size: 15px; font-weight: 600; color: var(--accent-light); margin: 24px 0 10px; \}\
+  p \{ color: var(--text); margin-bottom: 14px; \}\
+  ul, ol \{ padding-left: 20px; margin-bottom: 14px; \}\
+  li \{ margin-bottom: 8px; color: var(--text); \}\
+\
+  .highlight-box \{\
+    background: rgba(123,82,212,0.08);\
+    border-left: 3px solid var(--accent);\
+    border-radius: 0 8px 8px 0;\
+    padding: 16px 20px;\
+    margin: 20px 0;\
+  \}\
+\
+  .highlight-box p \{ margin-bottom: 0; \}\
+\
+  .data-table \{\
+    width: 100%;\
+    border-collapse: collapse;\
+    margin: 20px 0;\
+    font-size: 13px;\
+  \}\
+\
+  .data-table th \{\
+    background: rgba(123,82,212,0.15);\
+    color: var(--accent-light);\
+    font-weight: 600;\
+    padding: 12px 16px;\
+    text-align: left;\
+    border-bottom: 1px solid var(--border);\
+  \}\
+\
+  .data-table td \{\
+    padding: 12px 16px;\
+    border-bottom: 1px solid var(--border);\
+    color: var(--text);\
+    vertical-align: top;\
+  \}\
+\
+  .data-table tr:last-child td \{ border-bottom: none; \}\
+  .data-table tr:hover td \{ background: rgba(123,82,212,0.04); \}\
+\
+  strong \{ color: var(--white); font-weight: 600; \}\
+  code \{\
+    font-family: 'JetBrains Mono', monospace;\
+    font-size: 13px;\
+    background: rgba(123,82,212,0.12);\
+    color: var(--accent-light);\
+    padding: 2px 7px;\
+    border-radius: 4px;\
+  \}\
+\
+  .divider \{\
+    height: 1px;\
+    background: linear-gradient(90deg, transparent, var(--border), transparent);\
+    margin: 48px 0;\
+  \}\
+\
+  footer \{\
+    position: relative;\
+    z-index: 1;\
+    border-top: 1px solid var(--border);\
+    padding: 32px 40px;\
+    text-align: center;\
+  \}\
+\
+  footer p \{ font-size: 13px; color: var(--muted); margin-bottom: 8px; \}\
+  footer a \{ color: var(--accent-light); text-decoration: none; \}\
+  footer a:hover \{ text-decoration: underline; \}\
+\
+  @media (max-width: 640px) \{\
+    header \{ padding: 16px 20px; \}\
+    main \{ padding: 40px 20px 80px; \}\
+    .hero h1 \{ font-size: 26px; \}\
+    footer \{ padding: 24px 20px; \}\
+    .data-table \{ font-size: 12px; \}\
+    .data-table th, .data-table td \{ padding: 10px 12px; \}\
+  \}\
+</style>\
+</head>\
+<body>\
+\
+<header>\
+  <div class="logo">skalla<span>.ai</span></div>\
+  <div class="badge">Privacidade</div>\
+</header>\
+\
+<main>\
+  <div class="hero">\
+    <h1>Pol\'edtica de<br><span>Privacidade</span></h1>\
+    <div class="meta-info">\
+      <div class="meta-item"><strong>Disponibilizado em:</strong> 28/04/2026</div>\
+      <div class="meta-item"><strong>\'daltima atualiza\'e7\'e3o:</strong> 28/04/2026</div>\
+      <div class="meta-item"><strong>Vers\'e3o:</strong> 1.0</div>\
+    </div>\
+  </div>\
+\
+  <div class="highlight-box">\
+    <p>O Skalla.ai tem compromisso s\'e9rio com a privacidade e a prote\'e7\'e3o dos dados pessoais. Este Aviso informa como coletamos, utilizamos, processamos e compartilhamos dados pessoais quando voc\'ea utiliza nossa plataforma, em conformidade com a <strong>Lei Geral de Prote\'e7\'e3o de Dados (Lei n\'ba 13.709/2018 \'97 LGPD)</strong>.</p>\
+  </div>\
+\
+  <div class="toc">\
+    <h2>\'cdndice</h2>\
+    <ol>\
+      <li><a href="#s1">Conceitos Importantes</a></li>\
+      <li><a href="#s2">A Quem se Aplica</a></li>\
+      <li><a href="#s3">Pap\'e9is no Tratamento de Dados</a></li>\
+      <li><a href="#s4">Dados Coletados e Finalidades</a></li>\
+      <li><a href="#s5">Compartilhamento de Dados</a></li>\
+      <li><a href="#s6">Como Protegemos seus Dados</a></li>\
+      <li><a href="#s7">Seus Direitos como Titular</a></li>\
+      <li><a href="#s8">Por Quanto Tempo Armazenamos</a></li>\
+      <li><a href="#s9">Disposi\'e7\'f5es Gerais</a></li>\
+      <li><a href="#s10">Canal de Comunica\'e7\'e3o</a></li>\
+    </ol>\
+  </div>\
+\
+  <section id="s1">\
+    <div class="section-header">\
+      <div class="section-number">01</div>\
+      <h2>Conceitos Importantes</h2>\
+    </div>\
+    <ul>\
+      <li><strong>ANPD:</strong> Autoridade Nacional de Prote\'e7\'e3o de Dados.</li>\
+      <li><strong>Cliente:</strong> Pessoa que contrata e utiliza a licen\'e7a do Skalla.ai.</li>\
+      <li><strong>Controlador:</strong> Respons\'e1vel pelas decis\'f5es referentes ao tratamento de dados.</li>\
+      <li><strong>Dados Pessoais:</strong> Informa\'e7\'f5es que identificam uma pessoa natural (nome, e-mail, telefone, IP).</li>\
+      <li><strong>Lead:</strong> Contato capturado via WhatsApp ou formul\'e1rio que entra no sistema do Cliente.</li>\
+      <li><strong>LGPD:</strong> Lei Geral de Prote\'e7\'e3o de Dados Pessoais, Lei n\'ba 13.709/2018.</li>\
+      <li><strong>Operador:</strong> Quem realiza o tratamento de dados segundo orienta\'e7\'f5es do Controlador.</li>\
+      <li><strong>Skalla.ai:</strong> Plataforma SaaS de automa\'e7\'e3o de vendas com IA integrada ao WhatsApp, desenvolvida pela Suppera Publicidade Ltda.</li>\
+      <li><strong>Titular:</strong> Pessoa f\'edsica a quem se referem os dados pessoais tratados.</li>\
+      <li><strong>Tratamento de Dados:</strong> Toda opera\'e7\'e3o realizada com dados pessoais (coleta, uso, armazenamento, compartilhamento, elimina\'e7\'e3o).</li>\
+      <li><strong>Usu\'e1rio:</strong> Pessoa autorizada pelo Cliente a acessar o painel (Admin ou Atendente).</li>\
+    </ul>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s2">\
+    <div class="section-header">\
+      <div class="section-number">02</div>\
+      <h2>A Quem se Aplica</h2>\
+    </div>\
+    <p>Esta Pol\'edtica de Privacidade aplica-se a:</p>\
+    <ul>\
+      <li><strong>Clientes:</strong> Empresas ou pessoas f\'edsicas que contratam o Skalla.ai;</li>\
+      <li><strong>Usu\'e1rios:</strong> Atendentes e administradores cadastrados nas contas dos Clientes;</li>\
+      <li><strong>Visitantes:</strong> Pessoas que acessam o site <code>skalla.app</code> ou <code>skalla.ai</code>.</li>\
+    </ul>\
+    <p>Os leads e contatos processados dentro da plataforma s\'e3o de responsabilidade do Cliente, que atua como Controlador desses dados.</p>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s3">\
+    <div class="section-header">\
+      <div class="section-number">03</div>\
+      <h2>Pap\'e9is no Tratamento de Dados</h2>\
+    </div>\
+    <p>A <strong>Suppera Publicidade Ltda</strong> (Skalla.ai) atua como:</p>\
+    <ul>\
+      <li><strong>Controladora</strong> dos dados cadastrais dos Clientes diretos (nome, e-mail, CNPJ, telefone), utilizados para faturamento, suporte e comunica\'e7\'e3o;</li>\
+      <li><strong>Operadora</strong> dos dados de leads e contatos processados pela plataforma em nome dos Clientes.</li>\
+    </ul>\
+    <p>O <strong>Cliente</strong> \'e9 o \'fanico e exclusivo <strong>Controlador</strong> dos dados pessoais de seus leads, clientes finais e contatos que trafegam pelo Skalla.ai. Cabe ao Cliente garantir a conformidade com a LGPD perante seus pr\'f3prios titulares de dados, incluindo obten\'e7\'e3o de consentimentos aplic\'e1veis e manuten\'e7\'e3o de suas pr\'f3prias pol\'edticas de privacidade.</p>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s4">\
+    <div class="section-header">\
+      <div class="section-number">04</div>\
+      <h2>Dados Coletados e Finalidades</h2>\
+    </div>\
+\
+    <h3>4.1. Dados de cadastro do Cliente</h3>\
+    <ul>\
+      <li>Nome completo ou raz\'e3o social</li>\
+      <li>E-mail</li>\
+      <li>Telefone</li>\
+      <li>CNPJ ou CPF</li>\
+      <li>Aceite dos Termos e Condi\'e7\'f5es</li>\
+    </ul>\
+\
+    <h3>4.2. Dados de uso da plataforma</h3>\
+    <ul>\
+      <li>Endere\'e7o IP</li>\
+      <li>Registros de data e hora de a\'e7\'f5es</li>\
+      <li>Navegador e dispositivo</li>\
+      <li>Logs de acesso (conforme Marco Civil da Internet, Lei n\'ba 12.965/2014)</li>\
+    </ul>\
+\
+    <h3>4.3. Finalidades e bases legais</h3>\
+    <table class="data-table">\
+      <thead>\
+        <tr>\
+          <th>Dados</th>\
+          <th>Finalidade</th>\
+          <th>Base Legal (LGPD)</th>\
+        </tr>\
+      </thead>\
+      <tbody>\
+        <tr>\
+          <td>Cadastro do Cliente</td>\
+          <td>Forma\'e7\'e3o e execu\'e7\'e3o do contrato, identifica\'e7\'e3o, faturamento</td>\
+          <td>Execu\'e7\'e3o de contrato (art. 7\'ba, V)</td>\
+        </tr>\
+        <tr>\
+          <td>Cadastro de Usu\'e1rios</td>\
+          <td>Identifica\'e7\'e3o e controle de acesso ao painel</td>\
+          <td>Execu\'e7\'e3o de contrato (art. 7\'ba, V)</td>\
+        </tr>\
+        <tr>\
+          <td>Logs de uso</td>\
+          <td>Seguran\'e7a, diagn\'f3stico e obriga\'e7\'f5es legais</td>\
+          <td>Obriga\'e7\'e3o legal (art. 7\'ba, II) e Leg\'edtimo interesse (art. 7\'ba, IX)</td>\
+        </tr>\
+        <tr>\
+          <td>Comunica\'e7\'f5es com suporte</td>\
+          <td>Atendimento, melhoria do servi\'e7o</td>\
+          <td>Leg\'edtimo interesse (art. 7\'ba, IX)</td>\
+        </tr>\
+      </tbody>\
+    </table>\
+\
+    <div class="highlight-box">\
+      <p><strong>Importante:</strong> O Skalla.ai n\'e3o acessa o conte\'fado das conversas dos leads dos Clientes, nem os dados pessoais dos contatos processados dentro da plataforma. Esses dados s\'e3o de responsabilidade exclusiva do Cliente.</p>\
+    </div>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s5">\
+    <div class="section-header">\
+      <div class="section-number">05</div>\
+      <h2>Compartilhamento de Dados</h2>\
+    </div>\
+    <p>O Skalla.ai pode compartilhar dados com parceiros terceiros para viabilizar o funcionamento da plataforma:</p>\
+\
+    <h3>5.1. Operadores de dados (acesso restrito \'e0 presta\'e7\'e3o do servi\'e7o)</h3>\
+    <ul>\
+      <li><strong>Supabase / PostgreSQL:</strong> armazenamento de dados \'97 <code>supabase.com/privacy</code></li>\
+      <li><strong>Meta / WhatsApp:</strong> envio e recebimento de mensagens \'97 <code>whatsapp.com/legal</code></li>\
+      <li><strong>Anthropic (Claude):</strong> processamento de IA conversacional \'97 <code>anthropic.com/privacy</code></li>\
+      <li><strong>Groq / Whisper:</strong> transcri\'e7\'e3o de \'e1udios \'97 <code>groq.com/privacy</code></li>\
+      <li><strong>Resend:</strong> envio de e-mails transacionais \'97 <code>resend.com/privacy</code></li>\
+    </ul>\
+\
+    <h3>5.2. Controladores independentes (processamento pr\'f3prio)</h3>\
+    <ul>\
+      <li><strong>Stripe:</strong> processamento de pagamentos \'97 <code>stripe.com/privacy</code></li>\
+    </ul>\
+\
+    <p>O Skalla.ai n\'e3o vende, aluga ou comercializa dados pessoais de Clientes ou Usu\'e1rios a terceiros para fins de marketing.</p>\
+\
+    <h3>5.3. Transfer\'eancia Internacional de Dados</h3>\
+    <p>Alguns servi\'e7os utilizados pelo Skalla.ai operam em servidores fora do Brasil (como Anthropic e Stripe). Ao utilizar a plataforma, o Cliente declara ci\'eancia dessa possibilidade, sendo adotadas todas as medidas cab\'edveis para garantir a seguran\'e7a dos dados transferidos.</p>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s6">\
+    <div class="section-header">\
+      <div class="section-number">06</div>\
+      <h2>Como Protegemos seus Dados</h2>\
+    </div>\
+    <p>O Skalla.ai adota as seguintes medidas t\'e9cnicas e organizacionais de seguran\'e7a:</p>\
+    <ul>\
+      <li><strong>Isolamento multi-tenant:</strong> cada Cliente acessa exclusivamente seus pr\'f3prios dados;</li>\
+      <li><strong>Autentica\'e7\'e3o via JWT:</strong> tokens seguros com expira\'e7\'e3o controlada;</li>\
+      <li><strong>HTTPS/TLS:</strong> todas as comunica\'e7\'f5es s\'e3o criptografadas em tr\'e2nsito;</li>\
+      <li><strong>Controle de acesso por papel:</strong> Admin, Atendente e Super Admin com permiss\'f5es distintas;</li>\
+      <li><strong>Infraestrutura em VPS dedicada:</strong> hospedagem na Hostinger com Coolify, servidor no Brasil;</li>\
+      <li><strong>Backups autom\'e1ticos:</strong> realizados pelo Supabase.</li>\
+    </ul>\
+    <p>Em hip\'f3tese alguma, a equipe do Skalla.ai ter\'e1 acesso ao conte\'fado das conversas dos leads dos Clientes sem solicita\'e7\'e3o expressa para fins de suporte t\'e9cnico.</p>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s7">\
+    <div class="section-header">\
+      <div class="section-number">07</div>\
+      <h2>Seus Direitos como Titular</h2>\
+    </div>\
+    <p>Conforme a LGPD, voc\'ea tem os seguintes direitos em rela\'e7\'e3o aos seus dados pessoais:</p>\
+    <ul>\
+      <li><strong>Acesso:</strong> solicitar a rela\'e7\'e3o completa dos dados coletados;</li>\
+      <li><strong>Corre\'e7\'e3o:</strong> solicitar atualiza\'e7\'e3o de dados incompletos, inexatos ou desatualizados;</li>\
+      <li><strong>Elimina\'e7\'e3o:</strong> solicitar a exclus\'e3o de dados tratados com base em consentimento;</li>\
+      <li><strong>Portabilidade:</strong> solicitar os dados em formato estruturado para outro fornecedor;</li>\
+      <li><strong>Revoga\'e7\'e3o de consentimento:</strong> retirar o consentimento a qualquer momento;</li>\
+      <li><strong>Oposi\'e7\'e3o:</strong> opor-se a tratamentos realizados com base em leg\'edtimo interesse;</li>\
+      <li><strong>Reclama\'e7\'e3o:</strong> registrar queixa junto \'e0 ANPD.</li>\
+    </ul>\
+    <p>Para exercer seus direitos, entre em contato pelo canal: <code>skalla.tecnologia@gmail.com</code></p>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s8">\
+    <div class="section-header">\
+      <div class="section-number">08</div>\
+      <h2>Por Quanto Tempo Armazenamos</h2>\
+    </div>\
+    <p>Os dados fornecidos pelo Cliente/Usu\'e1rio ser\'e3o armazenados enquanto a conta estiver ativa na plataforma.</p>\
+    <p>Ap\'f3s o cancelamento, os dados ser\'e3o mantidos pelo prazo m\'ednimo exigido por lei (ex.: obriga\'e7\'f5es fiscais e cont\'e1beis) e, findo esse prazo, eliminados permanentemente.</p>\
+    <p>O Cliente pode solicitar a exclus\'e3o antecipada dos seus dados atrav\'e9s do canal de atendimento, ressalvados os dados cuja manuten\'e7\'e3o seja obrigat\'f3ria por lei ou necess\'e1rios para exerc\'edcio regular de direitos em processos judiciais ou administrativos.</p>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s9">\
+    <div class="section-header">\
+      <div class="section-number">09</div>\
+      <h2>Disposi\'e7\'f5es Gerais</h2>\
+    </div>\
+    <p>9.1. O Skalla.ai poder\'e1 atualizar esta Pol\'edtica a qualquer momento. Clientes ser\'e3o notificados por e-mail ou aviso no painel com anteced\'eancia razo\'e1vel. O uso continuado ap\'f3s a publica\'e7\'e3o confirma a aceita\'e7\'e3o das altera\'e7\'f5es.</p>\
+    <p>9.2. Esta Pol\'edtica integra de forma indissoci\'e1vel os Termos e Condi\'e7\'f5es de Uso do Skalla.ai.</p>\
+    <p>9.3. Em caso de conflito entre esta Pol\'edtica e os Termos de Uso, prevalecer\'e3o as disposi\'e7\'f5es mais protetivas ao titular dos dados.</p>\
+  </section>\
+\
+  <div class="divider"></div>\
+\
+  <section id="s10">\
+    <div class="section-header">\
+      <div class="section-number">10</div>\
+      <h2>Canal de Comunica\'e7\'e3o</h2>\
+    </div>\
+    <p>Para d\'favidas, solicita\'e7\'f5es de titulares ou quest\'f5es relacionadas a esta Pol\'edtica de Privacidade, entre em contato:</p>\
+    <ul>\
+      <li><strong>E-mail:</strong> <code>skalla.tecnologia@gmail.com</code></li>\
+      <li><strong>Respons\'e1vel:</strong> Suppera Publicidade Ltda \'97 Campina Grande/PB</li>\
+    </ul>\
+    <p>Tamb\'e9m \'e9 poss\'edvel registrar reclama\'e7\'f5es diretamente junto \'e0 <strong>ANPD</strong> em <code>gov.br/anpd</code>.</p>\
+  </section>\
+\
+</main>\
+\
+<footer>\
+  <p>\'a9 2026 Skalla.ai \'97 Suppera Publicidade Ltda. Todos os direitos reservados.</p>\
+  <p><a href="/termos">Termos e Condi\'e7\'f5es de Uso</a> \'b7 <a href="mailto:skalla.tecnologia@gmail.com">skalla.tecnologia@gmail.com</a></p>\
+</footer>\
+\
+</body>\
+</html>}
